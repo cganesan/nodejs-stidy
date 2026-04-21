@@ -1,8 +1,12 @@
 
+require('dotenv').config();
 const { MongoClient } = require("mongodb");
 
-// Use environment variable for the MongoDB connection string in production.
-// Example: set MONGODB_URI="mongodb+srv://user:pass@cluster/mydb"
+// Use environment variables for the MongoDB connection string.
+// For local development, create a `.env` file (ignored by git) with the values from `.env.example`.
+// Example .env:
+// MONGODB_URI="mongodb+srv://user:pass@cluster/mydb"
+// DB_NAME=ganesh-node
 const url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 const client = new MongoClient(url);
